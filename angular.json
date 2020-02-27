@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "SigmaFrontend": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "SigmaFrontend"
+    }
+  },
+  "defaultProject": "SigmaFrontend",
+  "cli": {
+    "analytics": "2c4ee8f1-c108-456f-ba6e-0a1d46c0ff24"
+  }
 }
