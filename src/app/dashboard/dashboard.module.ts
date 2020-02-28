@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
   declarations: [
     LoginComponent
   ],
+  exports: [ ],
   imports: [
     CommonModule,
     DashboardRouting,
