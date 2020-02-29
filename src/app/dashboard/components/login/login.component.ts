@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../services/auth.service';
-import {Router} from '@angular/router';
+import {AuthService} from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +13,7 @@ export class LoginComponent implements OnInit {
   public error: string;
 
   constructor(
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService
   ) {
     this.email = '';
     this.password = '';
@@ -32,7 +30,8 @@ export class LoginComponent implements OnInit {
           this.error = 'Ha ocurrido un error al generar tu token.';
         } else {
           localStorage.setItem('token', response.token);
-          this.router.navigate(['']);
+          // @ts-ignore
+          window.location = '/';
         }
       },
       (error) => {

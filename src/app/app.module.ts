@@ -8,7 +8,9 @@ import {DashboardModule} from './dashboard/dashboard.module';
 import {MetaService} from './services/meta.service';
 import {AuthService} from './services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
-import {HeaderComponent} from './dashboard/header/header.component';
+import {HeaderComponent} from './dashboard/components/header/header.component';
+import {UserService} from './services/user.service';
+import {UserModule} from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import {HeaderComponent} from './dashboard/header/header.component';
   imports: [
     BrowserModule,
     DashboardModule,
+    UserModule,
     HttpClientModule,
     NgbModule,
     AppRouting
   ],
   providers: [
     MetaService,
+    UserService,
     AuthService
   ],
   bootstrap: [AppComponent]

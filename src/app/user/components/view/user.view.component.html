@@ -1,0 +1,37 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Usuarios</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Nombre mongolico</li>
+  </ol>
+</nav>
+<section class="container-fluid">
+  <section class="row">
+    <section class="col-12 col-md-6 mt-3 d-flex justify-content-center">
+      <div class="user__picture">
+        <span>I</span>
+      </div>
+    </section>
+    <section class="col-12 col-md-6 mt-3 text-center text-md-left">
+      <h1>Nombre mongolico</h1>
+      <p>
+        <strong>Correo electrónico:</strong> popper@tussi.com.co
+      </p>
+      <p class="user__badges">
+        <span class="badge badge-primary">Primary</span>
+        <span class="badge badge-secondary">Secondary</span>
+        <span class="badge badge-success">Success</span>
+        <span class="badge badge-danger">Danger</span>
+      </p>
+      <ng-template #edit>Actualiza sus datos</ng-template>
+      <button type="button" class="btn btn-primary mr-2" [ngbTooltip]="edit">
+        <i class="fas fa-user-edit"></i>
+        Editar
+      </button>
+      <ng-template #disable><b>¡Esta opción no se puede deshacer!</b></ng-template>
+      <button type="button" class="btn btn-danger" disabled [ngbTooltip]="disable">
+        <i class="fas fa-user-minus"></i>
+        Desactivar
+      </button>
+    </section>
+  </section>
+</section>

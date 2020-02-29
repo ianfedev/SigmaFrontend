@@ -8,14 +8,21 @@
   </button>
   <div class="collapse navbar-collapse" [class.collapse]="collapsed">
     <ul class="navbar-nav mr-auto">
-      <a class="nav-link" routerLink="/users" routerLinkActive="active">Usuarios</a>
-      <a class="nav-link" routerLink="/groups" routerLinkActive="active">Grupos</a>
+      <li>
+        <a class="nav-link" routerLink="/users" routerLinkActive="active">Usuarios</a>
+      </li>
+      <li>
+        <a class="nav-link" routerLink="/groups" routerLinkActive="active">Grupos</a>
+      </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item" ngbDropdown>
-        <a class="nav-link" style="cursor: pointer;" ngbDropdownToggle id="profileDropdown">Mi Nombre Pro</a>
+        <a class="nav-link" style="cursor: pointer;" ngbDropdownToggle id="profileDropdown">
+          <span class="header__initial">{{user.name.substring(0, 1)}}</span>
+          {{user.name}}
+        </a>
         <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="profileDropdown">
-          <a ngbDropdownItem href="#">Cerrar sesión</a>
+          <a ngbDropdownItem class="header__logout" (click)="logout()">Cerrar sesión</a>
         </div>
       </li>
     </ul>

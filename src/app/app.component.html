@@ -1,2 +1,8 @@
-<!-- <router-outlet *ngIf="!logged"></router-outlet> -->
-<app-header></app-header>
+<router-outlet *ngIf="!logged"></router-outlet>
+<section *ngIf="logged">
+  <app-header></app-header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</section>
+

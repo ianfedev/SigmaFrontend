@@ -1,0 +1,12 @@
+main {
+  padding: 1rem;
+
+  @include media-breakpoint-up(lg) {
+    padding: 1rem 3rem;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 2rem 5rem;
+  }
+
+}

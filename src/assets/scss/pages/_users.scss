@@ -1,0 +1,18 @@
+.user {
+  &__picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    width: 10rem;
+    height: 10rem;
+    color: white;
+    font-size: 5rem;
+    border-radius: 100px;
+    background-color: darkblue;
+    text-align: center;
+  }
+
+  &__badges .badge {
+    margin-right: 3px;
+  }
+}

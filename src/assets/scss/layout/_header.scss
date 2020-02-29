@@ -1,3 +1,14 @@
 .header {
+  &__initial {
+    display: inline-block;
+    width: 24px;
+    color: white;
+    border-radius: 100px;
+    background-color: darkblue;
+    text-align: center;
+  }
 
+  &__logout {
+    cursor: pointer;
+  }
 }

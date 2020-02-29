@@ -1,4 +1,3 @@
-import {Title} from '@angular/platform-browser';
 import {Observable} from 'rxjs';
 import {IUser} from '../models/IUser';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
@@ -9,19 +8,18 @@ import {Injectable} from '@angular/core';
 export class AuthService {
 
   constructor(
-    private titleService: Title,
     private http: HttpClient
   ) {}
 
   public static getToken(): string {
     const token = localStorage.getItem('token');
     if (token === 'undefined' || token === null) { return 'guest'; }
-    return token;
+    return 'Bearer ' + token;
   }
 
   public static isLogged(): boolean {
     const token = localStorage.getItem('token');
-    return token === 'undefined' || token === null;
+    return token !== 'undefined' && token !== null && token !== '';
   }
 
   public loginUser(email: string, password: string): Observable<{user: IUser, token: string}> {
