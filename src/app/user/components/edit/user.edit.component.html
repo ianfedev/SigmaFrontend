@@ -1,0 +1,39 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active"><a routerLink="/users">Usuarios</a></li>
+    <li class="breadcrumb-item active">Editar a {{user.name}}</li>
+  </ol>
+</nav>
+<ngb-alert *ngIf="error != ''" type="danger" [dismissible]="false">
+  <strong>¡Error!</strong> {{error}}
+</ngb-alert>
+<form #editUser="ngForm" (ngSubmit)="editRequest()">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input
+            id="email" name="email" #email="ngModel" [(ngModel)]="user.email"
+            type="email" class="form-control" aria-describedby="Editar correo" placeholder="Ingreas un correo"
+            [class.is-invalid]="!email.valid" required
+          >
+          <small class="form-text text-muted">Nunca compartiremos tu información con otros.</small>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input
+            id="name" name="name" #name="ngModel" [(ngModel)]="user.name"
+            type="text" class="form-control" aria-describedby="Editar nombre" placeholder="Ingresa un nombre"
+            [class.is-invalid]="!name.valid" required
+          >
+        </div>
+        <section class="text-right">
+          <button type="submit" class="btn btn-primary" [disabled]="!editUser.valid">Submit</button>
+        </section>
+      </div>
+    </div>
+  </div>
+</form>

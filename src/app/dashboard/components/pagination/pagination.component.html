@@ -1,0 +1,70 @@
+<nav aria-label="Pagination" [class.text-center]="centered">
+  <ul class="pagination" *ngIf="type == 'less_five'">
+    <li class="page-item" *ngIf="actualPage != 1">
+      <a class="page-link" (click)="navigate(actualPage-1)">&laquo;</a>
+    </li>
+    <li *ngFor="let page of pages" class="page-item">
+      <a class="page-link" (click)="navigate(page)">{{page}}</a>
+    </li>
+    <li class="page-item" *ngIf="actualPage != lastPage && actualPage != 1">
+      <a class="page-link" (click)="navigate(actualPage-1)">&raquo;</a>
+    </li>
+  </ul>
+  <ul class="pagination" *ngIf="type == 'first_five'">
+    <li class="page-item" *ngIf="actualPage != 1">
+      <a class="page-link" (click)="navigate(actualPage-1)">&laquo;</a>
+    </li>
+    <li *ngFor="let page of pages" class="page-item">
+      <a class="page-link"  (click)="navigate(page)">{{page}}</a>
+    </li>
+    <li class="page-item">
+      ...
+    </li>
+    <li class="page-item">
+      <a class="page-link" (click)="navigate(lastPage)">{{lastPage}}</a>
+    </li>
+    <li class="page-item" *ngIf="actualPage != lastPage && actualPage != 1">
+      <a class="page-link" (click)="navigate(actualPage-1)">&raquo;</a>
+    </li>
+  </ul>
+  <ul class="pagination" *ngIf="type == 'middle_paginator'">
+    <li class="page-item" *ngIf="actualPage != 1">
+      <a class="page-link" (click)="navigate(actualPage-1)">&laquo;</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" (click)="navigate(firstPage)">{{firstPage}}</a>
+    </li>
+    <li class="page-item">
+      ...
+    </li>
+    <li *ngFor="let page of pages" class="page-item">
+      <a class="page-link" (click)="navigate(page)">{{page}}</a>
+    </li>
+    <li class="page-item">
+      ...
+    </li>
+    <li class="page-item">
+      <a class="page-link" (click)="navigate(lastPage)">{{lastPage}}</a>
+    </li>
+    <li class="page-item" *ngIf="actualPage != lastPage && actualPage != 1">
+      <a class="page-link" (click)="navigate(actualPage-1)">&raquo;</a>
+    </li>
+  </ul>
+  <ul class="pagination" *ngIf="type == 'last_five'">
+    <li class="page-item" *ngIf="actualPage != 1">
+      <a class="page-link" (click)="navigate(actualPage-1)">&laquo;</a>
+    </li>
+    <li *ngFor="let page of pages" class="page-item">
+      <a class="page-link" (click)="navigate(page)">{{page}}</a>
+    </li>
+    <li class="page-item">
+      ...
+    </li>
+    <li class="page-item">
+      <a class="page-link" (click)="navigate(lastPage)">{{lastPage}}</a>
+    </li>
+    <li class="page-item" *ngIf="actualPage != lastPage && actualPage != 1">
+      <a class="page-link" (click)="navigate(actualPage-1)">&raquo;</a>
+    </li>
+  </ul>
+</nav>

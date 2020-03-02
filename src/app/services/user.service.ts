@@ -28,4 +28,9 @@ export class UserService {
     return this.http.get(GLOBAL.url + 'users/list/' + page, {headers}) as Observable<IPaginateResult<IUser>>;
   }
 
+  public updateUser(user: IUser): Observable<IUser> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', AuthService.getToken());
+    return this.http.put(GLOBAL.url + 'users/update/' + user._id, user, {headers}) as Observable<IUser>;
+  }
+
 }

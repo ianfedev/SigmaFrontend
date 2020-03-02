@@ -5,13 +5,17 @@ import { DashboardRouting } from './dashboard.routing';
 import {LoginComponent} from './components/login/login.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
+import {PaginationComponent} from './components/pagination/pagination.component';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    PaginationComponent
   ],
-  exports: [ ],
+  exports: [
+    PaginationComponent
+  ],
   imports: [
     CommonModule,
     DashboardRouting,

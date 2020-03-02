@@ -24,8 +24,6 @@ export class UserMainComponent implements OnInit {
         this.pagination = data.UserMainGuard.pagination;
       }
     );
-    console.log(this.users);
-    console.log(this.pagination);
   }
 
   public parseDate(date: string): string {
