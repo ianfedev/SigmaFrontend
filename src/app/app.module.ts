@@ -4,13 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {DashboardModule} from './dashboard/dashboard.module';
+import {DashboardModule} from './modules/dashboard/dashboard.module';
 import {MetaService} from './services/meta.service';
 import {AuthService} from './services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
-import {HeaderComponent} from './dashboard/components/header/header.component';
+import {HeaderComponent} from './modules/dashboard/components/header/header.component';
 import {UserService} from './services/user.service';
-import {UserModule} from './user/user.module';
+import {UserModule} from './modules/user/user.module';
+import {GroupModule} from './modules/group/group.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {UserModule} from './user/user.module';
     BrowserModule,
     DashboardModule,
     UserModule,
+    GroupModule,
     HttpClientModule,
     NgbModule,
     AppRouting

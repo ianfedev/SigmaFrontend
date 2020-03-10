@@ -1,10 +1,10 @@
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
-import {IUser} from '../../models/IUser';
+import {IUser} from '../../../models/IUser';
 import {Injectable} from '@angular/core';
-import {UserService} from '../../services/user.service';
+import {UserService} from '../../../services/user.service';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {IPaginateResult} from '../../models/IPaginateResult';
+import {IPaginateResult} from '../../../models/IPaginateResult';
 
 @Injectable()
 export class UserMainGuard implements Resolve<IPaginateResult<IUser>> {

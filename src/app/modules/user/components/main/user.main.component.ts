@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {IUser} from '../../../models/IUser';
-import {IPagination} from '../../../models/IPaginateResult';
+import {IUser} from '../../../../models/IUser';
+import {IPagination} from '../../../../models/IPaginateResult';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({

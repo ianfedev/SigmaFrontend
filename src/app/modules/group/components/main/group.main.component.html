@@ -1,0 +1,42 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active">Grupos</li>
+  </ol>
+</nav>
+<table class="table">
+  <thead>
+  <tr>
+    <th class="d-none d-sm-block" scope="col">#</th>
+    <th scope="col">Nombre</th>
+    <th class="d-none d-sm-block" scope="col">Creado por</th>
+    <th class="text-right" scope="col">Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let group of []">
+    <th scope="row" class="d-none d-sm-block">{{group._id.slice(0, 6)}}</th>
+    <td>{{group.name}}</td>
+    <td class="d-none d-sm-block">{{group.crea}}</td>
+    <td class="text-right">
+      <ng-template #view>Ver su perfil</ng-template>
+      <a routerLink="{{'/users/view/' + user._id}}" class="btn btn-primary mr-2" [ngbTooltip]="view">
+        <i class="fas fa-eye"></i>
+      </a>
+      <ng-template #edit>Actualiza sus datos</ng-template>
+      <a routerLink="{{'/users/edit/' + user._id}}" class="btn btn-success mr-2" [ngbTooltip]="edit">
+        <i class="fas fa-user-edit"></i>
+      </a>
+      <ng-template #disable><b>¡Esta opción no se puede deshacer!</b></ng-template>
+      <button type="button" class="btn btn-danger" disabled [ngbTooltip]="disable">
+        <i class="fas fa-user-minus"></i>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<app-pagination
+  [actualPage]="pagination.page"
+  [centered]="true"
+  [lastPage]="pagination.totalPages"
+  [route]="'/users/'"
+></app-pagination>
