@@ -13,17 +13,17 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let group of []">
+  <tr *ngFor="let group of groups">
     <th scope="row" class="d-none d-sm-block">{{group._id.slice(0, 6)}}</th>
     <td>{{group.name}}</td>
-    <td class="d-none d-sm-block">{{group.crea}}</td>
+    <td class="d-none d-sm-block">{{group.createdBy.name}}</td>
     <td class="text-right">
-      <ng-template #view>Ver su perfil</ng-template>
-      <a routerLink="{{'/users/view/' + user._id}}" class="btn btn-primary mr-2" [ngbTooltip]="view">
+      <ng-template #view>Ver Grupo</ng-template>
+      <a routerLink="{{'/groups/view/' + group._id}}" class="btn btn-primary mr-2" [ngbTooltip]="view">
         <i class="fas fa-eye"></i>
       </a>
-      <ng-template #edit>Actualiza sus datos</ng-template>
-      <a routerLink="{{'/users/edit/' + user._id}}" class="btn btn-success mr-2" [ngbTooltip]="edit">
+      <ng-template #edit>Editar Grupo</ng-template>
+      <a routerLink="{{'/groups/edit/' + group._id}}" class="btn btn-success mr-2" [ngbTooltip]="edit">
         <i class="fas fa-user-edit"></i>
       </a>
       <ng-template #disable><b>¡Esta opción no se puede deshacer!</b></ng-template>
@@ -35,8 +35,8 @@
   </tbody>
 </table>
 <app-pagination
-  [actualPage]="pagination.page"
+  [actualPage]="1"
   [centered]="true"
-  [lastPage]="pagination.totalPages"
+  [lastPage]="1"
   [route]="'/users/'"
 ></app-pagination>

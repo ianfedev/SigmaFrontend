@@ -3,13 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import {GroupMainComponent} from './components/main/group.main.component';
 import {GroupEditComponent} from './components/edit/group.edit.component';
 import {GroupViewComponent} from './components/view/group.view.component';
+import {GroupMainGuard} from './guards/group.main.guard';
+import {GroupViewGuard} from './guards/group.view.guard';
 
 
 const routes: Routes = [
-  {path: '', component: GroupMainComponent},
-  {path: ':page?', component: GroupMainComponent},
-  {path: 'view/:id', component: GroupViewComponent},
-  {path: 'edit/:id', component: GroupEditComponent}
+  {path: '', redirectTo: 'list', pathMatch: 'full'},
+  {path: 'list', component: GroupMainComponent, resolve: {GroupMainGuard}},
+  {path: 'list/:page?', component: GroupMainComponent, resolve: {GroupMainGuard}},
+  {path: 'view/:id', component: GroupViewComponent, resolve: {GroupViewGuard}},
+  {path: 'edit/:id', component: GroupEditComponent, resolve: {GroupViewGuard}}
 ];
 
 @NgModule({

@@ -23,10 +23,10 @@
         <span class="badge badge-danger">Danger</span>
       </p>
       <ng-template #edit>Actualiza sus datos</ng-template>
-      <button type="button" class="btn btn-primary mr-2" [ngbTooltip]="edit">
+      <a routerLink="{{'/users/edit/' + user._id}}" type="button" class="btn btn-primary mr-2" [ngbTooltip]="edit">
         <i class="fas fa-user-edit"></i>
         Editar
-      </button>
+      </a>
       <ng-template #disable><b>¡Esta opción no se puede deshacer!</b></ng-template>
       <button type="button" class="btn btn-danger" disabled [ngbTooltip]="disable">
         <i class="fas fa-user-minus"></i>

@@ -1,0 +1,62 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/groups">Grupos</a></li>
+    <li class="breadcrumb-item active">{{group.name}}</li>
+  </ol>
+</nav>
+<section class="container-fluid">
+  <section class="row">
+    <section class="col-12 mt-3 mb-3 text-center">
+      <h1>{{group.name}}</h1>
+      <p>
+        <strong>Creador por:</strong> {{group.createdBy.name}}
+      </p>
+      <p>
+        <strong>Es administrador:</strong> {{group.admin ? "Si":"No"}}
+      </p>
+      <ng-template #edit>Editar este grupo</ng-template>
+      <a routerLink="{{'/groups/edit/' + group._id}}" type="button" class="btn btn-primary mr-2" [ngbTooltip]="edit">
+        <i class="fas fa-user-edit"></i>
+        Editar
+      </a>
+      <ng-template #disable><b>¡Esta opción no se puede deshacer!</b></ng-template>
+      <button type="button" class="btn btn-danger" disabled [ngbTooltip]="disable">
+        <i class="fas fa-user-minus"></i>
+        Desactivar
+      </button>
+    </section>
+    <section class="col-12 col-md-6 text-center text-sm-left">
+      <h2>Permisos de usuario</h2>
+      <p>
+        <strong>Crear:</strong> {{group.permissions.user.create ? "Si":"No"}}
+      </p>
+      <p>
+        <strong>Leer:</strong> {{group.permissions.user.read ? "Si":"No"}}
+      </p>
+      <p>
+        <strong>Actualizar:</strong> {{group.permissions.user.update ? "Si":"No"}}
+      </p>
+      <p>
+        <strong>Eliminar:</strong> {{group.permissions.user.delete ? "Si":"No"}}
+      </p>
+    </section>
+    <section class="col-12 col-md-6 text-center text-sm-left">
+      <h2>Permisos de grupo</h2>
+      <p>
+        <strong>Crear:</strong> {{group.permissions.group.create ? "Si":"No"}}
+      </p>
+      <p>
+        <strong>Asignar:</strong> {{group.permissions.group.assign ? "Si":"No"}}
+      </p>
+      <p>
+        <strong>Leer:</strong> {{group.permissions.group.read ? "Si":"No"}}
+      </p>
+      <p>
+        <strong>Actualizar:</strong> {{group.permissions.group.update ? "Si":"No"}}
+      </p>
+      <p>
+        <strong>Eliminar:</strong> {{group.permissions.group.delete ? "Si":"No"}}
+      </p>
+    </section>
+  </section>
+</section>

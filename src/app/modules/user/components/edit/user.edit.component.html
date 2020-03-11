@@ -15,7 +15,7 @@
           <label for="email">Correo electrónico</label>
           <input
             id="email" name="email" #email="ngModel" [(ngModel)]="user.email"
-            type="email" class="form-control" aria-describedby="Editar correo" placeholder="Ingreas un correo"
+            type="email" class="form-control" aria-describedby="Editar correo" placeholder="Ingresa un correo"
             [class.is-invalid]="!email.valid" required
           >
           <small class="form-text text-muted">Nunca compartiremos tu información con otros.</small>

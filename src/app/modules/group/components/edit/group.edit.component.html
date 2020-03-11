@@ -1,0 +1,129 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active"><a routerLink="/groups">Grupos</a></li>
+    <li class="breadcrumb-item active">Editar {{group.name}}</li>
+  </ol>
+</nav>
+<ngb-alert *ngIf="error != ''" type="danger" [dismissible]="false">
+  <strong>¡Error!</strong> {{error}}
+</ngb-alert>
+<form #editGroup="ngForm" (ngSubmit)="editRequest()">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input
+            id="name" name="name" #name="ngModel" [(ngModel)]="group.name"
+            type="email" class="form-control" aria-describedby="Ingresa el nombre del grupo" placeholder="Nombre del grupo"
+            [class.is-invalid]="!name.valid" required
+          >
+          <small class="form-text text-muted">Este grupo fué creado por {{group.createdBy.name}}.</small>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="d-flex align-items-center">
+          <div class="form-group">
+            <input
+              id="admin" name="admin" #admin="ngModel" [(ngModel)]="group.admin"
+              class="form-check-input" type="checkbox"
+            >
+            <label class="form-check-label" for="admin">
+              Acceso administrativo
+            </label>
+          </div>
+        </div>
+      </div>
+      <section class="col-12 col-md-6 text-center text-sm-left">
+        <h2>Permisos de usuario</h2>
+        <div class="form-group">
+          <input
+            id="createUser" name="createUser" #createUser="ngModel" [(ngModel)]="group.permissions.user.create"
+            class="form-check-input" type="checkbox"
+          >
+          <label class="form-check-label" for="createUser">
+            Crear usuarios
+          </label>
+        </div>
+        <div class="form-group">
+          <input
+            id="readUser" name="readUser" #readUser="ngModel" [(ngModel)]="group.permissions.user.read"
+            class="form-check-input" type="checkbox"
+          >
+          <label class="form-check-label" for="readUser">
+            Ver usuarios
+          </label>
+        </div>
+        <div class="form-group">
+          <input
+            id="updateUser" name="updateUser" #updateUser="ngModel" [(ngModel)]="group.permissions.user.update"
+            class="form-check-input" type="checkbox"
+          >
+          <label class="form-check-label" for="updateUser">
+            Actualizar usuarios
+          </label>
+        </div>
+        <div class="form-group">
+          <input
+            id="deleteUser" name="deleteUser" #deleteUser="ngModel" [(ngModel)]="group.permissions.user.delete"
+            class="form-check-input" type="checkbox"
+          >
+          <label class="form-check-label" for="deleteUser">
+            Eliminar usuarios
+          </label>
+        </div>
+      </section>
+      <section class="col-12 col-md-6 text-center text-sm-left">
+        <h2>Permisos de grupo</h2>
+        <p>
+          <input
+            id="createGroup" name="createGroup" #createGroup="ngModel" [(ngModel)]="group.permissions.group.create"
+            class="form-check-input" type="checkbox"
+          >
+          <label class="form-check-label" for="createGroup">
+            Crear grupos
+          </label>
+        </p>
+        <div class="form-group">
+          <input
+            id="readGroup" name="assignGroup" #readGroup="ngModel" [(ngModel)]="group.permissions.group.read"
+            class="form-check-input" type="checkbox"
+          >
+          <label class="form-check-label" for="readGroup">
+            Leer grupos
+          </label>
+        </div>
+        <div class="form-group">
+          <input
+            id="assignGroup" name="assignGroup" #assignGroup="ngModel" [(ngModel)]="group.permissions.group.assign"
+            class="form-check-input" type="checkbox"
+          >
+          <label class="form-check-label" for="assignGroup">
+            Asignar grupos
+          </label>
+        </div>
+        <div class="form-group">
+          <input
+            id="updateGroup" name="updateGroup" #updateGroup="ngModel" [(ngModel)]="group.permissions.group.update"
+            class="form-check-input" type="checkbox"
+          >
+          <label class="form-check-label" for="updateGroup">
+            Actualizar grupos
+          </label>
+        </div>
+        <div class="form-group">
+          <input
+            id="deleteGroup" name="deleteGroup" #deleteGroup="ngModel" [(ngModel)]="group.permissions.group.delete"
+            class="form-check-input" type="checkbox"
+          >
+          <label class="form-check-label" for="deleteGroup">
+            Eliminar grupos
+          </label>
+        </div>
+        <section class="text-right">
+          <button type="submit" class="btn btn-primary" [disabled]="!editGroup.valid">Submit</button>
+        </section>
+      </section>
+    </div>
+  </div>
+</form>

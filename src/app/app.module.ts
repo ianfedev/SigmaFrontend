@@ -12,6 +12,7 @@ import {HeaderComponent} from './modules/dashboard/components/header/header.comp
 import {UserService} from './services/user.service';
 import {UserModule} from './modules/user/user.module';
 import {GroupModule} from './modules/group/group.module';
+import {GroupService} from './services/group.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {GroupModule} from './modules/group/group.module';
   providers: [
     MetaService,
     UserService,
+    GroupService,
     AuthService
   ],
   bootstrap: [AppComponent]

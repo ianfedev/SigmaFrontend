@@ -8,8 +8,9 @@ import {UserEditComponent} from './components/edit/user.edit.component';
 
 
 const routes: Routes = [
-  {path: '', component: UserMainComponent, resolve: {UserMainGuard}},
-  {path: ':page?', component: UserMainComponent, resolve: {UserMainGuard}},
+  {path: '', redirectTo: 'list', pathMatch: 'full'},
+  {path: 'list', component: UserMainComponent, resolve: {UserMainGuard}},
+  {path: 'list/:page?', component: UserMainComponent, resolve: {UserMainGuard}},
   {path: 'view/:id', component: UserViewComponent, resolve: {UserViewGuard}},
   {path: 'edit/:id', component: UserEditComponent, resolve: {UserViewGuard}}
 ];
